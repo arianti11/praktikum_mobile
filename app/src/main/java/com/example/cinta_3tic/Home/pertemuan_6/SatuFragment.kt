@@ -1,4 +1,4 @@
-package com.example.cinta_3tic.pertemuan_6
+package com.example.cinta_3tic.Home.pertemuan_6
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
