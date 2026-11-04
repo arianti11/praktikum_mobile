@@ -35,6 +35,9 @@ android {
 }
 
 dependencies {
+    implementation("androidx.gridlayout:gridlayout:1.0.0") // Tahap 4: GridLayout
+    implementation("androidx.viewpager2:viewpager2:1.1.0") // Tahap 5: ViewPager2
+    implementation("com.tbuonomo:dotsindicator:5.1.0") // Tahap 6: DotsIndicator
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
@@ -43,6 +46,8 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.material)
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
