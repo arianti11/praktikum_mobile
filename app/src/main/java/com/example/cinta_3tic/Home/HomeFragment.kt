@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import com.example.cinta_3tic.Home.pertemuan_11.EleventhActivity
 import com.example.cinta_3tic.Home.pertemuan_5.LimaActivity
 import com.example.cinta_3tic.Home.pertemuan_6.EnamActivity
 import com.example.cinta_3tic.Home.pertemuan_9.NinthActivity
@@ -79,6 +80,10 @@ class HomeFragment : Fragment() {
         binding.btnToSembilan.setOnClickListener {
             val intentsembilan = Intent(requireContext(), NinthActivity::class.java)
             startActivity(intentsembilan)
+        }
+        binding.btnToSebelas.setOnClickListener {
+            val intentsebelas = Intent(requireContext(), EleventhActivity::class.java)
+            startActivity(intentsebelas)
         }
         binding.btnAlertDialog.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
