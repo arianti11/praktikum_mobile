@@ -1,12 +1,15 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.devtools.ksp")
 }
+
 
 android {
     namespace = "com.example.cinta_3tic"
     compileSdk {
         version = release(37)
     }
+
 
     defaultConfig {
         applicationId = "com.example.cinta_3tic"
@@ -15,8 +18,10 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
 
     buildTypes {
         release {
@@ -34,21 +39,30 @@ android {
     }
 }
 
+
 dependencies {
-    implementation("androidx.gridlayout:gridlayout:1.0.0") // Tahap 4: GridLayout
-    implementation("androidx.viewpager2:viewpager2:1.1.0") // Tahap 5: ViewPager2
-    implementation("com.tbuonomo:dotsindicator:5.1.0") // Tahap 6: DotsIndicator
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
-    implementation("com.github.bumptech.glide:glide:4.16.0")
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.material)
-    implementation(libs.navigation.fragment.ktx)
-    implementation(libs.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+    implementation("androidx.gridlayout:gridlayout:1.0.0") // Tahap 4: GridLayout
+    implementation("androidx.viewpager2:viewpager2:1.1.0") // Tahap 5: ViewPager2
+    implementation("com.tbuonomo:dotsindicator:5.1.0") // Tahap 6: DotsIndicator
+    implementation("androidx.recyclerview:recyclerview:1.3.2") // Tahap 3 dan 4: RecyclerView
+    implementation("com.github.bumptech.glide:glide:4.16.0") // Tahap 4: memuat gambar dari URL
+
+
+    // Tambahkan ke blok dependencies yang sudah ada.
+    val roomVersion = "2.8.4"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
 }

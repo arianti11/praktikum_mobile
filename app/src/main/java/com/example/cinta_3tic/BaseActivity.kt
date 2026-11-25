@@ -1,7 +1,6 @@
 package com.example.cinta_3tic
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,16 +9,21 @@ import androidx.fragment.app.Fragment
 import com.example.cinta_3tic.Home.HomeFragment
 import com.example.cinta_3tic.Message.MessageFragment
 import com.example.cinta_3tic.More.MoreFragment
+import com.example.cinta_3tic.catatan.CatatanFragment
 import com.example.cinta_3tic.databinding.ActivityBaseBinding
-import com.example.cinta_3tic.databinding.ActivityEnamBinding
+import com.example.cinta_3tic.note.NoteFragment
+
 
 class BaseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBaseBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+
         binding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -27,7 +31,8 @@ class BaseActivity : AppCompatActivity() {
             insets
         }
         replaceFragment(HomeFragment())
-        //manggil fragment apa yang petama di tampilkan
+
+
         binding.bottomNavView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
@@ -42,14 +47,24 @@ class BaseActivity : AppCompatActivity() {
                     replaceFragment(MoreFragment())
                     true
                 }
+                R.id.note -> {
+                    replaceFragment(NoteFragment())
+                    true
+                }
+                R.id.catatan -> {
+                    replaceFragment(CatatanFragment())
+                    true
+                }
                 else -> false // false jika item tidak dikenal
             }
         }
     }
+
+
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(binding.fragmentContainer.id, fragment)
-            //.addToBackStack(null) //sengaja dinonaktifkan: saat back langsung keluar aplikasi
+// .addToBackStack(null) sengaja dinonaktifkan: saat back langsung keluar aplikasi
             .commit()
     }
 }
